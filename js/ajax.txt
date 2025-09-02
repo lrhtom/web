@@ -1,0 +1,80 @@
+//跨域问题VSCode中安装Live Server插件
+//https://blog.csdn.net/qq_53985958/article/details/125295187
+///ajax对象
+var xmlhttp=(window.XMLHttpRequest ? new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP"));
+
+    xmlhttp.onload = function(){
+        /*
+        当ajxa对象启动时操作(定义回调函数)回调函数是作为参数传递给另一个函数的函数。
+        在这种情况下，回调函数应包含响应准备就绪时要执行的代码。
+        接收服务器响应的数（一次请求，只会执行一次）
+        */
+        document.getElementById("p_1").innerHTML = this.responseText;// 当响应准备就绪时要做什么
+    }
+xmlhttp.open("GET","data.txt",true)//启动ajxa对象方式
+//xmlhttp.open("GET","data.txt",true)//最后一个是true（异步）或 false（同步）
+xmlhttp.send()//启动ajxa对象
+/*--------------------ajxa函数---------------------*/
+/*------------函数onload---------------*/
+var xmlhttp=(window.XMLHttpRequest ? new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP"));
+
+    xmlhttp.onload = function(){
+        /*
+        当ajxa对象启动时操作(定义回调函数)回调函数是作为参数传递给另一个函数的函数。
+        在这种情况下，回调函数应包含响应准备就绪时要执行的代码。
+        接收服务器响应的数（一次请求，只会执行一次）
+        */
+        document.getElementById("p_1").innerHTML = this.responseText;// 当响应准备就绪时要做什么
+    }
+xmlhttp.open("GET","data.txt",true)//启动ajxa对象方式
+//xmlhttp.open("GET","data.txt",true)//最后一个是true（异步）或 false（同步）
+xmlhttp.send()//启动ajxa对象
+/*------------函数onreadystatechange---------------*/
+    var xmlhttp=(window.XMLHttpRequest ? new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP"));
+    xmlhttp.onreadystatechange = function(){
+        /*
+        当请求接收到应答时所执行的函数
+        作用与onload事件一致（一次请求，会执行多次）
+        当 readyState 为 4，status 为 200 时，响应就绪
+        */
+        if(this.readyState == 4 && this.status  == 200){
+            /*
+            readyState:
+            0: 请求未初始化
+            1: 服务器连接已建立
+            2: 请求已接收
+            3: 正在处理请求
+            4: 请求已完成且响应已就绪
+            */
+            /*
+            status:
+            200: "OK"
+            403: "Forbidden"
+            404: "Page not found"
+            */
+            document.getElementById("p_1").innerHTML = this.responseText;
+        }
+    }
+    xmlhttp.open("GET","data.txt",true)//启动ajxa对象方式
+    //xmlhttp.open("GET","data.txt",true)//最后一个是true（异步）或 false（同步）
+    xmlhttp.send()//启动ajxa对象
+/*------------函数参数---------------*/
+html部分：
+<body>
+  <p id = "p_1">1</p>
+  <button onclick="f1('data.txt', f2)"></button><!--传入f1里面文件位置和执行函数-->
+</body>
+js部分：
+var f1=function(url, cFunction){
+    var xmlhttp=(window.XMLHttpRequest ? new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP"));
+    xmlhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status  == 200){
+            cFunction(this);
+        }
+    }
+    xmlhttp.open("GET",url,true)//启动ajxa对象方式
+    xmlhttp.send()//启动ajxa对象
+}
+var f2=function(xhttp){
+    document.getElementById("p_1").innerHTML = xhttp.responseText;
+}

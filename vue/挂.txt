@@ -1,0 +1,831 @@
+/*-----------------------语法基础-----------------*/
+/*---------基础----*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="hello-vue" class="demo"><!--里面是hello-vue渲染区域-->
+        {{ message + talks }}<!--调用hello-vue中data返回的东西-->
+      </div>
+      <script>
+      const HelloVueApp = {
+        data() {//关键字
+          return {//返回message和talks
+            message: 'Hello Vue!!',
+            talks : '123',
+          }
+        }
+      }
+      /*
+      上面的也可以这么写
+            Vue.createApp({
+        data() {//关键字
+          return {//返回message和talks
+            message: 'Hello Vue!!',
+            talks : '123',
+          }
+        }
+      }).mount('#hello-vue')
+      */
+      Vue.createApp(HelloVueApp).mount('#hello-vue')
+      </script>
+</body>
+
+</html>
+/*------js表达式----*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app"><!--注意必须在Vue渲染范围里面才可以使用js表达式-->
+        {{5+5}}<br><!--可以在{{}}里面使用JavaScript 表达式-->>
+        {{ ok ? 'YES' : 'NO' }}<br>
+        {{ message.split('').reverse().join('') }}
+        <div v-bind:id="'list-' + id">菜鸟教程</div>
+        <!--
+        表达式会在当前活动实例的数据作用域下作为 JavaScript 被解析
+        所以下面的例子都不会生效
+       这是语句，不是表达式：
+       {{ var a = 1 }}
+        流控制也不会生效，请使用三元表达式 
+        {{ if (ok) { return message } }}
+        -->
+    </div>
+        
+    <script>
+    const app = {
+      data() {
+        return {
+          ok: true,
+          message: 'RUNOOB!!',
+          id: 1
+        }
+      }
+    }
+     
+    Vue.createApp(app).mount('#app')
+    </script>
+</body>
+</html>
+/*-------------------------样式绑定（style和class可以一起用）--------------------*/
+/*----class绑定----*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <script src="1.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+    <style>
+        .b1{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        </style>
+</head>
+<body>
+    <div id="app">
+        <blocks></blocks>
+      </div>
+
+      <script>
+        var c=0;
+      const app = Vue.createApp({})
+      app.component('blocks', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                bis : 'b1',
+            }
+        },
+        methods:{//一个组件里面的局部函数
+
+        },
+        template://一个组件里面的模板
+        //这里绑定了class active1和active2并且active1使用变量判读是否使用active2直接true
+        `
+            <div :class="[bis]">
+                
+            </div>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/---可调参数----/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <script src="1.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+    <style>
+        .active2{
+            width: 100px;
+            height: 100px;
+        }
+        .active1{
+            background: green;
+        }
+        </style>
+</head>
+<body>
+    <div id="app">
+        <blocks></blocks>
+      </div>
+
+      <script>
+        var c=0;
+      const app = Vue.createApp({})
+      app.component('blocks', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                act : true
+            }
+        },
+        methods:{//一个组件里面的局部函数
+
+        },
+        template://一个组件里面的模板
+        //这里绑定了class active1和active2并且active1使用变量判读是否使用active2直接true
+        `
+            <div :class="{'active1':act,'active2':true}">
+                {{lefts}}
+            </div>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*----class绑定(数组)----*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <script src="1.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+    <style>
+        .active2{
+            width: 100px;
+            height: 100px;
+        }
+        .active1{
+            background: green;
+        }
+        </style>
+</head>
+<body>
+    <div id="app">
+        <blocks></blocks>
+      </div>
+
+      <script>
+        var c=0;
+      const app = Vue.createApp({})
+      app.component('blocks', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                act : 'active2',
+                act1 : 'active1',
+            }
+        },
+        methods:{//一个组件里面的局部函数
+
+        },
+        template://一个组件里面的模板
+        //这里绑定了class active1和active2并且active1使用变量判读是否使用active2直接true
+        `
+            <div :class="[act,act1]">
+                {{lefts}}
+            </div>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*----class绑定(三元表达式)+数组----*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <script src="1.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+    <style>
+        .b1{
+            width: 100px;
+            height: 100px;
+        }
+        .c1{           
+            background: red;
+        }
+        .c2{
+            background: green;
+ 
+        }
+        </style>
+</head>
+<body>
+    <div id="app">
+        <blocks></blocks>
+      </div>
+
+      <script>
+        var c=0;
+      const app = Vue.createApp({})
+      app.component('blocks', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                act : 'c1',
+                act1 : 'c2',
+                bis : 'b1',
+                j : true,
+            }
+        },
+        methods:{//一个组件里面的局部函数
+
+        },
+        template://一个组件里面的模板
+        //这里绑定了class active1和active2并且active1使用变量判读是否使用active2直接true
+        `
+            <div :class="[bis , (j ? act:act1)]">
+                {{lefts}}
+            </div>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*----style绑定----*/
+/*--直接设置样式--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <script src="1.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <blocks></blocks>
+      </div>
+
+      <script>
+        var c=0;
+      const app = Vue.createApp({})
+      app.component('blocks', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                activeColor : 'red',
+                sz : 100,
+                j : true,
+            }
+        },
+        methods:{//一个组件里面的局部函数
+
+        },
+        template://一个组件里面的模板
+        //color属性的activeColor值 fontSize(字大小)属性的sz值
+        `
+            <div :style="{color: activeColor, fontSize: sz + 'px'}">
+                123
+            </div>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*--样式对象--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <script src="1.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <blocks></blocks>
+      </div>
+
+      <script>
+        var c=0;
+      const app = Vue.createApp({})
+      app.component('blocks', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                obj:{
+                    color: "red",
+			        fontSize: "30px"
+                }
+            }
+        },
+        methods:{//一个组件里面的局部函数
+
+        },
+        template://一个组件里面的模板
+        //直接绑obj
+        `
+            <div :style="obj">
+                123
+            </div>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*-----------组件 一个组件通常由三部分组成：模板、脚本和样式--------------*/
+/*------基础--------*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+      </div>
+      <script>
+        var c=0;
+       
+      const app = Vue.createApp({})
+      app.component('button-counter', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                lefts : 0
+            }
+        },
+        methods:{//一个组件里面的局部函数
+            one() {
+                c++;
+                alert("第一个事件处理器逻辑..." + c)
+            },
+            two() {
+                c++;
+                alert("第二个事件处理器逻辑..." + c)
+            }
+        },
+        template://一个组件里面的模板
+        `
+            <button @click = "one(),two()">
+                {{lefts}}
+            </button>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*------------------------指令-------------------------*/
+v-bind	用于将 Vue 实例的数据绑定到 HTML 元素的属性上。
+v-if	用于根据表达式的值来条件性地渲染元素或组件。
+v-show	v-show 是 Vue.js 提供的一种指令，用于根据表达式的值来条件性地显示或隐藏元素。
+v-for	用于根据数组或对象的属性值来循环渲染元素或组件。
+v-on	用于在 HTML 元素上绑定事件监听器，使其能够触发 Vue 实例中的方法或函数。
+v-model	用于在表单控件和 Vue 实例的数据之间创建双向数据绑定。
+/*------v-model(数据绑定)------*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app" class="demo">
+        <button onclick="f1()">click me</button>
+        <input type="text" v-model="message"><!--数据绑定message,input里面的message变量现在可以随时变化(注意这种不会改变v1)-->
+        <p>{{ message }}</p>
+    </div>
+    
+    <script>
+        
+        var v1=100000
+        function f1(){
+            alert(v1)
+        }
+    const HelloVueApp = {
+      data() {
+        return {
+          message: v1
+        }
+      }
+    }
+    
+    Vue.createApp(HelloVueApp).mount('#app')
+    </script>
+    
+</body>
+
+</html>
+/*--  v-bind将 Vue 实例的数据绑定到 HTML 元素的属性上---*/
+<!-- 完整语法 -->
+<a v-bind:href="url"></a>
+<!-- 缩写 -->
+<a :href="url"></a>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app" class="demo">
+        <img v-bind:src="imageSrc">
+    </div>
+    
+    <script>
+    const HelloVueApp = {
+      data() {
+        return {
+          imageSrc: 'https://static.jyshare.com/images/code-icon-script.png'
+        }
+      }
+    }
+    
+    Vue.createApp(HelloVueApp).mount('#app')
+    </script>
+</body>
+</html>
+/*-------------v-show----------*/
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="hello-vue" class="demo">
+        <p v-show="showMessage">Hello Vue!</p><!--根据showMessage属性让Hello Vue!是否显示-->
+    </div>
+    
+    <script>
+    const HelloVueApp = {
+      data() {
+        return {
+          showMessage: true
+        }
+      }
+    }
+    
+    Vue.createApp(HelloVueApp).mount('#hello-vue')
+    </script>
+</body>
+</html>
+/*---------- v-html指令用于输出 html 代码-----------*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="example1" class="demo">
+        <p>使用 v-html 指令: <span v-html="rawHtml"></span></p><!--放p里面使用-->
+        <div v-html="rawHtml"></div><!--直接使用-->
+    </div>
+     
+    <script>
+    const RenderHtmlApp = {
+      data() {
+        return {
+            <!--rawHtml是组件-->
+          rawHtml: '<span style="color: red">这里会显示红色！</span>'
+        }
+      }
+    }
+     
+    Vue.createApp(RenderHtmlApp).mount('#example1')
+    </script>
+</body>
+</html>
+/*---------- v-if 和 v-else 指令根据表达式的值来条件性地渲染元素或组件--------*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="type === 'A'">A</div><!--如果type是A-->
+        <div v-else-if="type === 'B'">B</div><!--如果type是B-->
+        <div v-else-if="type === 'C'">C</div><!--如果type是C-->
+        <div v-else>Not A/B/C</div>
+    </div>
+        
+    <script>
+    const app = {
+      data() {
+        return {
+          type: "C" 
+        }
+      }
+    }
+     
+    Vue.createApp(app).mount('#app')
+    </script>
+</body>
+</html>
+/*----------循环语句v-for---------*/
+/*--数组来渲染一个列表--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <ol>
+          <li v-for="site in sites">
+            {{ site.text }}
+          </li>
+        </ol>
+      </div>
+      <script>
+      const app = {
+        data() {
+          return {
+            sites: [
+              { text: 'Google' },
+              { text: 'Runoob' },
+              { text: 'Taobao' }
+            ]
+          }
+        }
+      }
+      
+      Vue.createApp(app).mount('#app')
+      </script>
+</body>
+</html>
+/*--索引遍历数组--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <ol>
+          <li v-for="(site, index) in sites">
+            {{ index }} -{{ site.text }}
+          </li>
+        </ol>
+      </div>
+      <script>
+      const app = {
+        data() {
+          return {
+            sites: [
+              { text: 'Google' },
+              { text: 'Runoob' },
+              { text: 'Taobao' }
+            ]
+          }
+        }
+      }
+      
+      Vue.createApp(app).mount('#app')
+      </script>
+</body>
+</html>
+/*--v-for 迭代对象--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+          <li v-for="(value, key, index) in object">
+           {{ index }}. {{ key }} : {{ value }}
+          </li>
+        </ul>
+      </div>
+       
+      <script>
+      const app = {
+        data() {
+          return {
+            object: {
+              name: '菜鸟教程',
+              url: 'http://www.runoob.com',
+              slogan: '学的不仅是技术，更是梦想！'
+            }
+          }
+        }
+      }
+       
+      Vue.createApp(app).mount('#app')
+      </script>
+</body>
+</html>
+/*--if和for一起使用--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(site, index) in sites">
+            <p v-if = " index == 1" >
+                123
+            </p>
+        </div>
+        <div v-for="n in 10">
+            <p v-if = " (n%2) == 1" >
+                {{n}}
+            </p>
+        </div>
+      </div>
+      <script>
+      const app = {
+        data() {
+          return {
+            sites: [
+              { text: 'Google' },
+              { text: 'Runoob' },
+              { text: 'Taobao' }
+            ]
+          }
+        }
+      }
+      
+      Vue.createApp(app).mount('#app')
+      </script>
+</body>
+</html>
+/*--if和for筛选闰年--*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="n in v">
+            <p v-if = " (n%4==0 && n%100!=0) || (n%400==0)" >
+                {{n}}
+            </p>
+        </div>
+      </div>
+      <script>
+      const app = {
+        data() {
+          return {
+            v : 1000
+          }
+        }
+      }
+      
+      Vue.createApp(app).mount('#app')
+      </script>
+</body>
+</html>
+/*-----v-on监听 DOM 事件从而执行 JavaScript 代码--------*/
+<!-- 完整语法 -->
+<a v-on:click="doSomething"></a>
+<!-- 缩写 -->
+<a @click="doSomething"></a>
+<!-- 基础 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+      </div>
+      <script>
+        var c=0;
+       
+      const app = Vue.createApp({})
+      app.component('button-counter', {//component关键字runoob是html自定义标签名
+        data(){//一个组件里面的局部变量
+            return{
+                lefts : 0
+            }
+        },
+        methods:{//一个组件里面的局部函数
+            one:function() {
+                c++;
+                alert("第一个事件处理器逻辑..." + c)
+            },
+            two() {
+                c++;
+                alert("第二个事件处理器逻辑..." + c)
+            }
+        },
+        template://一个组件里面的模板
+        `
+            <button @click = "one(),two()">
+                {{lefts}}
+            </button>
+        `
+    })
+    app.mount('#app')
+      </script>
+</body>
+</html>
+/*--事件修饰符--*/
+
+/*------------------------（注意现在掌握不多）监听属性-------------------------*/
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <title>title</title>
+</head>
+<body>
+    <div id = "app">
+        千米 : <input type = "text" v-model = "kilometers"  @focus="currentlyActiveField = 'kilometers'">
+        米 : <input type = "text" v-model = "meters" @focus="currentlyActiveField = 'meters'">
+    </div>
+    <p id="info"></p>    
+    <script>
+    const app = {
+      data() {
+        return {
+          kilometers : 0,
+          meters:0
+        }
+      },
+      watch : {
+        kilometers:function(newValue, oldValue) {
+          // 判断是否是当前输入框
+          if (this.currentlyActiveField === 'kilometers') {
+            this.meters = newValue * 1000
+          }
+        },
+        meters : function (newValue, oldValue) {
+          // 判断是否是当前输入框
+          if (this.currentlyActiveField === 'meters') {
+            this.kilometers = newValue/ 1000;
+          }
+        }
+      }
+    }
+    vm = Vue.createApp(app).mount('#app')
+    vm.$watch('kilometers', function (newValue, oldValue) {
+      // 这个回调将在 vm.kilometers 改变后调用
+      document.getElementById ("info").innerHTML = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+    })
+    </script>
+</body>
+</html>
+
+  

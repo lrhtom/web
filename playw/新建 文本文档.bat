@@ -1,0 +1,6 @@
+npm init playwright@latest 
+npx playwright test 
+npm install --global babel-cli
+npm install --save-dev babel-preset-es2015
+npm init -y
+npm i -D @playwright/test

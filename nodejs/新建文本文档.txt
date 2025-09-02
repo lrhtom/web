@@ -1,0 +1,7 @@
+# 查看版本
+npm -v
+2.3.0
+# 升级或安装 cnpm
+npm install cnpm -g
+# 最新稳定版
+npm init vue@latest

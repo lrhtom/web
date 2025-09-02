@@ -1,0 +1,122 @@
+标签	描述	显示
+<!--...-->	定义注释。	--
+<!DOCTYPE>	定义文档类型。	--
+<a>	定义锚。	inline
+<abbr>	定义缩写。	inline
+<acronym>	定义只取首字母的缩写。	inline
+<address>	定义文档作者或拥有者的联系信息。	block
+<applet>	不赞成使用。定义嵌入的 applet。	inline
+<area>	定义图像映射内部的区域。	none
+<article>	定义文章。	block
+<aside>	定义页面内容之外的内容。	block
+<audio>	定义声音内容。	inline-block
+<b>	定义粗体字。	inline
+<base>	定义页面中所有链接的默认地址或默认目标。	inline
+<basefont>	不赞成使用。定义页面中文本的默认字体、颜色或尺寸。	inline
+<bdi>	定义文本的文本方向，使其脱离其周围文本的方向设置。	inline
+<bdo>	定义文字方向。	inline
+<big>	定义大号文本。	inline
+<blockquote>	定义长的引用。	block
+<body>	定义文档的主体。	block
+<br>	定义简单的折行。	inline
+<button>	定义按钮 (push button)。	inline-block
+<canvas>	定义图形。	inline-block
+<caption>	定义表格标题。	table-caption
+<center>	不赞成使用。定义居中文本。	block
+<cite>	定义引用(citation)。	inline
+<code>	定义计算机代码文本。	inline
+<col>	定义表格中一个或多个列的属性值。	table-column
+<colgroup>	定义表格中供格式化的列组。	table-column-group
+<command>	定义命令按钮。	inline
+<datalist>	定义下拉列表。	none
+<dd>	定义定义列表中项目的描述。	block
+<del>	定义被删除文本。	inline
+<details>	定义元素的细节。	block
+<dir>	不赞成使用。定义目录列表。	block
+<div>	定义文档中的节。	block
+<dfn>	定义定义项目。	inline
+<dialog>	定义对话框或窗口。	none
+<dl>	定义定义列表。	block
+<dt>	定义定义列表中的项目。	block
+<em>	定义强调文本。	inline
+<embed>	定义外部交互内容或插件。	inline
+<fieldset>	定义围绕表单中元素的边框。	block
+<figcaption>	定义 figure 元素的标题。	block
+<figure>	定义媒介内容的分组，以及它们的标题。	block
+<font>	不赞成使用。定义文字的字体、尺寸和颜色。	inline
+<footer>	定义 section 或 page 的页脚。	block
+<form>	定义供用户输入的 HTML 表单。	block
+<frame>	定义框架集的窗口或框架。	block
+<frameset>	定义框架集。	block
+<h1> to <h6>	定义 HTML 标题。	--
+<head>	定义关于文档的信息。	none
+<header>	定义 section 或 page 的页眉。	block
+<hr>	定义水平线。	block
+<html>	定义 HTML 文档。	block
+<i>	定义斜体字。	inline
+<iframe>	定义内联框架。	block
+<img>	定义图像。	inline
+<input>	定义输入控件。	inline-block
+<ins>	定义被插入文本。	inline
+<isindex>	不赞成使用。定义与文档相关的可搜索索引。	inline
+<kbd>	定义键盘文本。	inline
+<keygen>	定义生成密钥。	inline-block
+<label>	定义 input 元素的标注。	inline
+<legend>	定义 fieldset 元素的标题。	block
+<li>	定义列表的项目。
+list-item
+<link>	定义文档与外部资源的关系。	none
+<map>	定义图像映射。	inline
+<mark>	定义有记号的文本。	inline
+<menu>	定义命令的列表或菜单。	block
+<menuitem>	定义用户可以从弹出菜单调用的命令/菜单项目。	inline
+<meta>	定义关于 HTML 文档的元信息。	none
+<meter>	定义预定义范围内的度量。	inline-block
+<nav>	定义导航链接。	block
+<noframes>	定义针对不支持框架的用户的替代内容。	none
+<noscript>	定义针对不支持客户端脚本的用户的替代内容。	inline
+<object>	定义内嵌对象。	inline
+<ol>	定义有序列表。	block
+<optgroup>	定义选择列表中相关选项的组合。	block
+<option>	定义选择列表中的选项。	block
+<output>	定义输出的一些类型。	inline
+<p>	定义段落。	block
+<param>	定义对象的参数。	none
+<pre>	定义预格式文本。	block
+<progress>	定义任何类型的任务的进度。	inline-block
+<q>	定义短的引用。	inline
+<rp>	定义若浏览器不支持 ruby 元素显示的内容。	inline
+<rt>	定义 ruby 注释的解释。	inline
+<ruby>	定义 ruby 注释。	inline
+<s>	不赞成使用。定义加删除线的文本。	inline
+<samp>	定义计算机代码样本。	inline
+<script>	定义客户端脚本。	none
+<section>	定义 section。	block
+<select>	定义选择列表（下拉列表）。	inline-block
+<small>	定义小号文本。	inline
+<source>	定义媒介源。	inline
+<span>	定义文档中的节。	inline
+<strike>	不赞成使用。定义加删除线文本。	inline
+<strong>	定义强调文本。	inline
+<style>	定义文档的样式信息。	none
+<sub>	定义下标文本。	inline
+<summary>	为 <details> 元素定义可见的标题。	block
+<sup>	定义上标文本。	inline
+<table>	定义表格。	table
+<tbody>	定义表格中的主体内容。	table-row-group
+<td>	定义表格中的单元。	table-cell
+<textarea>	定义多行的文本输入控件。	inline-block
+<tfoot>	定义表格中的表注内容（脚注）。	table-footer-group
+<th>	定义表格中的表头单元格。	table-cell
+<thead>	定义表格中的表头内容。	table-header-group
+<time>	定义日期/时间。	inline
+<title>	定义文档的标题。	none
+<tr>	定义表格中的行。	table-row
+<track>	定义用在媒体播放器中的文本轨道。	inline
+<tt>	定义打字机文本。	inline
+<u>	不赞成使用。定义下划线文本。	inline
+<ul>	定义无序列表。	block
+<var>	定义文本的变量部分。	inline
+<video>	定义视频。	inline-block
+<wbr>	定义视频。	inline
+<xmp>	不赞成使用。定义预格式文本。	block

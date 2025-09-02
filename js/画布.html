@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>1</title>
+<style>
+    #mycanvas
+    {border: 10px solid chocolate};
+</style>
+</head>
+<body>
+<canvas id="mycanvas" width="1000px" height="1000px"></canvas>
+<script>
+var mycanvas = document.getElementById('mycanvas');
+var c1 = mycanvas.getContext('2d');
+var c2 = mycanvas.getContext('2d');
+var c3 = mycanvas.getContext('2d');
+var c4 = mycanvas.getContext('2d');
+var c5 = mycanvas.getContext('2d');
+var c6 = mycanvas.getContext('2d');
+var c7 = mycanvas.getContext('2d');
+var c8 = mycanvas.getContext('2d');
+var c9 = mycanvas.getContext('2d');
+var c10 = mycanvas.getContext('2d');
+var c11 = mycanvas.getContext('2d');
+var c12 = mycanvas.getContext('2d');
+
+c1.fillRect(200,200,50,50);//(x,y,大小x，大小y)
+c1.fillStyle="green";
+
+c2.rect(100,100,100,100);
+c2.fill();
+
+c3.rect(50,50,100,100);
+c3.strokeStyle='red';
+c3.stroke();
+
+c4.beginPath();
+c4.lineWidth=4;
+c4.moveTo(20,20);
+c4.lineTo(20,200);
+c4.stroke();
+
+c5.beginPath();
+c5.arc(100,300,80,0,2*Math.PI,true);//园 （X,Y,半径，起始弧度，结束弧度,true逆时针，false顺时针）
+c5.fillStyle="green";
+c5.fill();
+
+c6.font="30px Arial";
+c6.fillStyle="red";
+c6.fillText("ass",100,500);
+c6.fillText("ass",300,400);
+c6.textAlign='center';
+c6.textBaseline='middle';
+
+var grd=c7.createLinearGradient(0,0,170,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+c7.fillStyle=grd;
+c7.fillRect(100,100,150,100);
+c7.fillRect(0,0,150,100);
+
+var x=500,y=500,i=0,sx=1,sy=1;
+c8.fillStyle="red";
+setInterval(function(){
+c8.clearRect(x-sx,y,50,50);//(清理指定区域的画布x,y,区域X,区域y)
+c8.translate(sx,sy);
+c8.fillRect(x,y,50,50);
+x++; 
+},1000/60)
+
+</script>
+
+</body>
+</html>

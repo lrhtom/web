@@ -1,0 +1,796 @@
+///语法格式
+<div class="container 标签属性1 标签属性2 ..."></div>
+///大小(小->大)
+-sm
+-md
+-lg
+-xl
+-xxl
+///对其
+float-start//左对齐
+float-end//右对齐
+mx-auto d-block//中对
+///偏移和边界填充
+mt-数字//右移
+p-5//边界填充5
+<!------------------------------------------------------------------------------------------------>
+/// 容器
+container 类用于固定宽度并支持响应式布局的容器。(一个容器元素来包裹网站的内容。高级body)
+container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+container-sm	(100%	540px	720px	960px	1140px	1320px)
+container-md	(100%	100%	720px	960px	1140px	1320px)
+container-lg	(100%	100%	100%	960px	1140px	1320px)
+container-xl	(100%	100%	100%	100%	1140px	1320px)
+container-xxl   (100%	100%	100%	100%	100%	1320px)
+<!------------------------------------------------------------------------------------------------>
+///网络
+创建相等宽度的列，Bootstrap 自动布局
+<!--------------------------------------------->
+//不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个 "col"每个就为 25% 的宽度，以此类推
+<div class="row">
+  <div class="col">123</div>
+  <div class="col">2</div>
+  <div class="col">2</div>
+</div>
+<!--------------------------------------------->
+//加：的一个表示响应的设备: sm, md, lg 或 xl，的二个表示一个数字, 同一行的排版数字相加为 12，比如4个3每个就为 25% 的宽度
+<div class="col-sm-3">.col-sm-3</div>
+<div class="col-sm-3">.col-sm-3</div>
+<div class="col-sm-3">.col-sm-3</div>
+<div class="col-sm-3">.col-sm-3</div>
+<!--------------------------------------------->
+//设置某一列宽度 以下实例将列宽度为 25%、50%、25%
+<div class="row">
+  <div class="col">col</div>
+  <div class="col-6">col-6</div>
+  <div class="col">col</div>
+</div>
+<!--------------------------------------------->
+//偏移列(例如：.offset-md-4 是把.col-md-4 往右移了四列格)
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+  <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+</div>
+<!--------------------------------------------->
+//平板和桌面端:以下实例演示了在桌面设备的显示器上两个列的宽度各占 50%，如果在平板端则左边的宽度为 25%，右边的宽度为 75%, 在移动手机等小型设备上会堆叠显示
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-6">
+      <p>RUNOOB</p>
+    </div>
+    <div class="col-sm-9 col-md-6">
+      <p>菜鸟教程</p>
+    </div>
+  </div>
+</div>
+<!------------------------------------------------------------------------------------------------>
+///颜色
+//背景
+标签属性可以嵌入其他类
+bg-primary ">重要的背景颜色。
+bg-success">执行成功背景颜色。
+bg-info ">信息提示背景颜色。
+bg-warning ">警告背景颜色
+bg-danger ">危险背景颜色。
+bg-secondary ">副标题背景颜色。
+bg-dark ">黑色背景颜色。
+bg-light ">浅灰背景颜色
+<!--------------------------------------------->。
+//文本颜色
+text-muted">柔和的文本。
+text-primary">重要的文本。
+text-success">执行成功的文本。
+text-info">代表一些提示信息的文本。
+text-warning">警告文本。
+text-danger">危险操作文本。
+text-secondary">副标题
+text-dark">深灰色文字。
+text-body">默认颜色，为黑色。
+text-light">浅灰色文本（白色背景上看不清楚）。
+text-white">白色文本（白色背景上看不清楚）。
+<!--------------------------------------------->
+//文本型
+display-1(标题)
+<pre></pre>（代码）
+//透明度
+bg-primary-50 透明度为50%
+50%text-success-50 等等颜色的都可以加
+<!------------------------------------------------------------------------------------------------>
+///基础表格（tr td也可以用）
+//只有下边界表格
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+    </tbody>
+</table>
+<!--------------------------------------------->
+//条纹表格在 <tbody> 内的行上看到条纹
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+<!--------------------------------------------->
+//带边框表格
+class="table table-bordered"
+//无边框
+class="table table-borderless"
+//背景表格(这里是黑色可以看看color还有什么颜色)
+class="table table-dark"
+//颜色条纹表格(这里是黑条纹)
+class="table table-dark table-striped"
+//鼠标悬停状态表格(这里是black)
+class="table table-dark table-hover"
+<!--------------------------------------------->
+//指定意义的颜色类
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>      
+      <tr class="table-primary">
+        <td>Primary</td>
+        <td>Joe</td>
+        <td>joe@example.com</td>
+      </tr>
+      <tr class="table-success">
+        <td>Success</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="table-danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+    </tbody>
+</table>
+table-primary	蓝色: 指定这是一个重要的操作
+table-success	绿色: 指定这是一个允许执行的操作
+table-danger	红色: 指定这是可以危险的操作
+table-info	浅蓝色: 表示内容已变更
+table-warning	橘色: 表示需要注意的操作
+table-active	灰色: 用于鼠标悬停效果
+table-secondary	灰色: 表示内容不怎么重要
+table-light	浅灰色，可以是表格行的背景
+table-dark	深灰色，可以是表格行的背景
+//大小这里是小
+table table-sm
+<!--------------------------------------------->
+//响应式表格(在屏幕宽度小于 sm大小 时会创建水平滚动条)
+<div class="table-responsive-sm">
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Sex</th>
+        <th>Example</th>
+        <th>Example</th>
+        <th>Example</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+        <td>New York</td>
+        <td>USA</td>
+        <td>Female</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+</table>
+</div>
+<!------------------------------------------------------------------------------------------------>
+///图像形状
+//圆角图片
+<img decoding="async" src="图像" class="rounded" alt="Cinque Terre">
+//椭圆图片
+<img decoding="async" src="图像" class="rounded-circle" alt="Cinque Terre">
+//缩略图
+<img decoding="async" src="图像" class="img-thumbnail" alt="Cinque Terre">
+//图片对齐方式
+<img decoding="async" src="paris.jpg" class="float-start"> //左对齐
+<img decoding="async" src="cinqueterre.jpg" class="float-end"> //右对齐
+<img decoding="async" src="paris.jpg" class="mx-auto d-block"> //图片居中
+//响应式图片(标签中添加 .img-fluid 类来设置响应式图片.img-fluid 类设置了 max-width: 100%; 、 height: auto)
+<img decoding="async" class="img-fluid" src="img_chania.jpg" alt="Chania">
+<!------------------------------------------------------------------------------------------------>
+///超大屏幕
+class="mt-4 p-5 bg-primary text-white rounded"
+<!------------------------------------------------------------------------------------------------>
+///信息提示框
+<div class="alert alert-success">
+  框里面的内容
+</div>
+<!--------------------------------------------->
+//颜色（可以参考color）
+alert-success
+alert-info
+alert-warning
+alert-danger
+alert-primary
+alert-secondary
+alert-light 
+alert-dark
+<!--------------------------------------------->
+//关闭提示框
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  框里面的内容
+</div>
+//提示框动画(用于设置提示框在关闭时的淡出和淡入效果：)
+<div class="alert alert-danger alert-dismissible fade show">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  框里面的内容
+</div>
+<!------------------------------------------------------------------------------------------------>
+///按钮
+//颜色
+<button type="button" class="btn">基本按钮</button>
+<button type="button" class="btn btn-primary">主要按钮</button>
+<button type="button" class="btn btn-secondary">次要按钮</button>
+<button type="button" class="btn btn-success">成功</button>
+<button type="button" class="btn btn-info">信息</button>
+<button type="button" class="btn btn-warning">警告</button>
+<button type="button" class="btn btn-danger">危险</button>
+<button type="button" class="btn btn-dark">黑色</button>
+<button type="button" class="btn btn-light">浅色</button>
+<button type="button" class="btn btn-link">链接</button>
+<!--------------------------------------------->
+//按钮设置边框(鼠标移动到按钮上添加突出到效果,就是加了一个outline)
+<button type="button" class="btn btn-outline-primary">主要按钮</button>
+<button type="button" class="btn btn-outline-secondary">次要按钮</button>
+<button type="button" class="btn btn-outline-success">成功</button>
+<button type="button" class="btn btn-outline-info">信息</button>
+<button type="button" class="btn btn-outline-info">警告</button>
+<button type="button" class="btn btn-outline-danger">危险</button>
+<button type="button" class="btn btn-outline-dark">黑色</button>
+<button type="button" class="btn btn-outline-light text-dark">浅色</button>
+<!--------------------------------------------->
+//不同大小的按钮
+<button type="button" class="btn btn-primary btn-lg">大号按钮</button>
+<button type="button" class="btn btn-primary">默认按钮</button>
+<button type="button" class="btn btn-primary btn-sm">小号按钮</button>
+<!--------------------------------------------->
+//块级按钮(通过添加 .btn-block 类可以设置块级按钮，.d-grid 类设置在父级元素中)
+/1个
+<div class="d-grid">
+    <button type="button" class="btn btn-primary btn-block">按钮 1</button>
+</div>
+/多个
+<div class="d-grid gap-3">
+  <button type="button" class="btn btn-primary btn-block">100% 宽度的按钮</button>
+  <button type="button" class="btn btn-primary btn-block">100% 宽度的按钮</button>
+  <button type="button" class="btn btn-primary btn-block">100% 宽度的按钮</button>
+</div>
+<!--------------------------------------------->
+//激活和禁用的按钮,active 类可以设置按钮是可用的， disabled 属性可以设置按钮是不可点击的。 注意 <a> 元素不支持 disabled 属性，你可以通过添加 .disabled 类来禁止链接的点击
+<button type="button" class="btn btn-primary active">点击后的按钮</button>
+<button type="button" class="btn btn-primary" disabled>禁止点击的按钮</button>
+<a href="#" class="btn btn-primary disabled">禁止点击的链接</a>
+<!--------------------------------------------->
+//加载按钮(四种)
+<button class="btn btn-primary">
+  <span class="spinner-border spinner-border-sm"></span>
+</button>
+ 
+<button class="btn btn-primary">
+  <span class="spinner-border spinner-border-sm"></span>
+  内容
+</button>
+ 
+<button class="btn btn-primary" disabled>
+  <span class="spinner-border spinner-border-sm"></span>
+  内容
+</button>
+ 
+<button class="btn btn-primary" disabled>
+  <span class="spinner-grow spinner-grow-sm"></span>
+  内容
+</button>
+<!------------------------------------------------------------------------------------------------>
+///按钮组(允许我们将按钮放在同一行上)
+//横着按钮组
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+<!--------------------------------------------->
+//垂直按钮组
+<div class="btn-group-vertical">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+<!--------------------------------------------->
+//内嵌按钮组及下拉菜单(dropdown-toggle)
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+       Sony
+    </button>
+    <div class="dropdown-menu">//下拉菜单内容
+      <a class="dropdown-item" href="#">Tablet</a>
+      <a class="dropdown-item" href="#">Smartphone</a>
+    </div>
+  </div>
+</div>
+<!------------------------------------------------------------------------------------------------>
+///徽章(建议嵌套使用)
+//语法格式
+<h1>测试标题 <span class="badge">New</span></h1>
+//背景颜色文字颜色看上面
+//形状
+rounded-pill 药丸形状徽章
+<!------------------------------------------------------------------------------------------------>
+///进度条
+//背景颜色文字颜色看上面
+<div class="progress bg-info">//背景色
+  <div class="progress-bar bg-info" style="width:50%"></div>//进度色
+</div>
+<!--------------------------------------------->
+//语法格式
+<div class="progress">//整个进度条
+  <div class="progress-bar" style="width:70%"></div>//进度条进度
+</div>
+<!--------------------------------------------->
+//条纹的进度条
+<div class="progress">
+  <div class="progress-bar progress-bar-striped" style="width:40%"></div>
+</div>
+<!--------------------------------------------->
+//动画进度条
+<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%"></div>
+<!--------------------------------------------->
+//混合色彩进度条
+<div class="progress">
+  <div class="progress-bar bg-success" style="width:40%">
+    Free Space
+  </div>
+  <div class="progress-bar bg-warning" style="width:10%">
+    Warning
+  </div>
+  <div class="progress-bar bg-danger" style="width:20%">
+    Danger
+  </div>
+</div>
+<!------------------------------------------------------------------------------------------------>
+///加载效果(标签属性可以嵌入其他类)
+//可以使用文本颜色类设置不同的颜色
+<div class="spinner-border text-muted"></div>
+<div class="spinner-border text-primary"></div>
+<div class="spinner-border text-success"></div>
+<div class="spinner-border text-info"></div>
+<div class="spinner-border text-warning"></div>
+<div class="spinner-border text-danger"></div>
+<div class="spinner-border text-secondary"></div>
+<div class="spinner-border text-dark"></div>
+<div class="spinner-border text-light"></div>
+<!--------------------------------------------->
+//闪烁的加载效果
+spinner-grow 
+<!--------------------------------------------->
+//设置加载效果大小
+<div class="spinner-border spinner-border-sm"></div>
+<div class="spinner-grow spinner-grow-sm"></div>
+<!------------------------------------------------------------------------------------------------>
+///Bootstrap5 分页
+//当前页页码状态(active是页码码数)
+<ul class="pagination">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item active"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+<!--------------------------------------------->
+//不可点击的分页链接(disabled)
+<ul class="pagination">
+  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+//大小 颜色 文字颜色可以见上
+<!------------------------------------------------------------------------------------------------>
+///Bootstrap5 列表组
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">激活列表项</a>
+    <a href="#" class="list-group-item list-group-item-success">成功列表项</a>
+    <a href="#" class="list-group-item list-group-item-secondary">次要列表项</a>
+    <a href="#" class="list-group-item list-group-item-info">信息列表项</a>
+    <a href="#" class="list-group-item list-group-item-warning">警告列表项</a>
+    <a href="#" class="list-group-item list-group-item-danger">危险列表项</a>
+    <a href="#" class="list-group-item list-group-item-primary">主要列表项</a>
+    <a href="#" class="list-group-item list-group-item-dark">深灰色列表项</a>
+    <a href="#" class="list-group-item list-group-item-light">浅色列表项</a>
+</div>
+<!------------------------------------------------------------------------------------------------>
+///Bootstrap5 卡片
+//语法
+<div class="card">
+  <div class="card-header">头部</div>
+  <div class="card-body">内容</div> 
+  <div class="card-footer">底部</div>
+</div>
+//多种颜色卡片
+<div class="container">
+  <h2>多种颜色卡片</h2>
+  <div class="card">
+    <div class="card-body">基础卡片</div>
+  </div>
+  <br>
+  <div class="card bg-primary text-white">
+    <div class="card-body">主要卡片</div>
+  </div>
+  <br>
+  <div class="card bg-success text-white">
+    <div class="card-body">成功卡片</div>
+  </div>
+  <br>
+  <div class="card bg-info text-white">
+    <div class="card-body">信息卡片</div>
+  </div>
+  <br>
+  <div class="card bg-warning text-white">
+    <div class="card-body">警告卡片</div>
+  </div>
+  <br>
+  <div class="card bg-danger text-white">
+    <div class="card-body">危险卡片</div>
+  </div>
+  <br>
+  <div class="card bg-secondary text-white">
+    <div class="card-body">次要卡片</div>
+  </div>
+  <br>
+  <div class="card bg-dark text-white">
+    <div class="card-body">黑色卡片</div>
+  </div>
+  <br>
+  <div class="card bg-light text-dark">
+    <div class="card-body">浅色卡片</div>
+  </div>
+</div>
+//图片卡片标题、文本和链接
+<div class="card" style="width:400px">
+  <img decoding="async" class="card-img-top" src="img_avatar1.png" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+<!------------------------------------------------------------------------------------------------>
+ ///下拉菜单
+  <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+      下拉菜单按钮
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">链接 1</a></li>
+      <li><a class="dropdown-item" href="#">链接 2</a></li>
+      <li><a class="dropdown-item" href="#">链接 3</a></li>
+	  <li><hr class="dropdown-divider"></li><!--分隔线-->
+	  <li><a class="dropdown-item" href="#">链接 4</a></li>
+    <li><a class="dropdown-item" href="#">常规项</a></li>
+      <li><a class="dropdown-item active" href="#">激活项</a></li><!--激活型-->
+      <li><a class="dropdown-item disabled" href="#">禁用项</a></li><!--不可激活-->
+    </ul>
+  </div>
+<!------------------------------------------------------------------------------------------------>
+  ///折叠
+  //演示
+  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">折叠</button>
+  <div id="demo" class="collapse">
+    这里是一些测试的内容。。。这里是一些测试的内容。。。这里是一些测试的内容。。。这里是一些测试的内容。。。这里是一些测试的内容。。。
+  </div>
+  //折叠选项
+  <div id="accordion">
+    <div class="card">
+        <div class="card-header">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+            选项一
+            </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+            <div class="card-body">
+            #1 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            选项二
+        </a>
+        </div>
+         <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+            #2 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            选项三
+            </a>
+        </div>
+        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+            #3 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------>
+ ///导航
+ //胶囊状动态选项卡
+ <ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="pill" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="pill" href="#menu1">Menu 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="pill" href="#menu2">Menu 2</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="container tab-pane fade"><br>
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+</div>
+//动态选项卡
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="container tab-pane fade"><br>
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+  //固定导航栏
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Logo</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container-fluid" style="margin-top:80px">
+        <h3>固定导航栏</h3>
+        <p>导航栏可以固定在头部或者底部。</p>
+        <h1>滚动页面查看效果。</h1>
+      </div>
+<!------------------------------------------------------------------------------------------------>
+///轮播
+<!-- 轮播 -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+   <!-- 指示符 -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+  
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg" class="d-block" style="width:100%">
+    </div>
+    <div class="carousel-item">
+      <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg" class="d-block" style="width:100%">
+    </div>
+    <div class="carousel-item">
+      <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg" class="d-block" style="width:100%">
+    </div>
+  </div>
+  
+  <!-- 左右切换按钮 -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<!------------------------------------------------------------------------------------------------>
+///模态框
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        打开模态框
+      </button>
+    </div>
+    
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal"><!-- 添加动画效果和id定位 -->
+      <div class="modal-dialog modal-sm"><!-- 大小 -->
+        <div class="modal-content">
+    
+          <!-- 模态框头部 -->
+          <div class="modal-header">
+            <h4 class="modal-title">模态框标题</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- 模态框内容 -->
+          <div class="modal-body">
+            模态框内容..
+          </div>
+    
+          <!-- 模态框底部 -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+          </div>
+    
+        </div>
+      </div>
+<!------------------------------------------------------------------------------------------------>
+///自带小工具
+<input type="color" id="color" class="form-control" style="width: 60px;padding: 4px;" autocomplete="off" value="#656565">
+<!------------------------------------------------------------------------------------------------>
+ ///侧边栏
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        使用链接的 href 属性
+      </a>
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        按钮中使用 data-bs-target
+      </button>
+       
+      <div class="offcanvas offcanvas-start offcanvas-top<!--侧边栏的方向(上)-->" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">侧边栏</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+        </div>
+      </div>
+<!------------------------------------------------------------------------------------------------>
+///滚动监听
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#section1">Section 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section2">Section 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section3">Section 3</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div id="section1" class="container-fluid bg-success text-white" style="padding:100px 20px;">
+      <h1>Section 1</h1>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section2" class="container-fluid bg-warning" style="padding:100px 20px;">
+      <h1>Section 2</h1>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
+      <h1>Section 3</h1>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    </body>
+<!------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+

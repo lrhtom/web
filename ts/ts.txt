@@ -1,0 +1,287 @@
+cmd编译
+tsc 文件名.ts
+比如 tsc a.ts
+<!------------------------------------------------------------------------------------------------>
+///document.write是相当于在自动在html文件里面写入标签比如
+
+document.write('<table>');
+for(qwe1=0;qwe1<10;qwe1++){
+    document.write('<tr>');   
+    for(qwe=0;qwe<10;qwe++){
+        document.write('<td><br><h1>' + "123" + '</td></td></h1>');
+        }
+        document.write('</tr>'); 
+ }
+document.write('</table>');
+
+
+''里面是标签
+“”里面是字符
+<!------------------------------------------------------------------------------------------------>
+///控制台输出
+console.log('hello world')
+
+var num = 5;
+console.log(num);
+<!------------------------------------------------------------------------------------------------>
+///变量
+var a = new int(100);
+a=10;
+var a1 = new string("123");
+a1=10;
+<!--------------------------------------------->
+//语法
+let 变量名:变量类型 = 初始化值;
+比如
+let x: any = 1; (设x为any型初始值=1)
+<!--------------------------------------------->
+//any（声明为 any 的变量可以赋予任意类型的值。）
+let x: any = 1;    // 数字类型
+x = 'I am who I am';    // 字符串类型
+x = false; 
+<!--------------------------------------------->
+//number双精度 64 位浮点值。它可以用来表示整数和分数
+let n1: number = 0b1010; // 二进制
+let n2: number = 0o744;    // 八进制
+let n3: number = 6;    // 十进制
+let n4: number = 0xf00d;    // 十六进制
+console.log(n1)
+console.log(n2)
+console.log(n3)
+console.log(n4)
+<!--------------------------------------------->
+//Number对象（不是number）
+document.write(Number.MAX_VALUE);//可表示的最大的数，MAX_VALUE 属性值接近于 1.79E+308。大于 MAX_VALUE 的值代表 "Infinity"。
+document.write(Number.MIN_VALUE);//可表示的最小的数，即最接近 0 的正数 (实际上不会变成 0)。最大的负数是 -MIN_VALUE，MIN_VALUE 的值约为 5e-324。小于 MIN_VALUE ("underflow values") 的值将会转换为 0。
+document.write(Number.NaN);//非数字值（Not-A-Number）
+document.write(Number.NEGATIVE_INFINITY);//负无穷大，溢出时返回该值。该值小于 MIN_VALUE
+document.write(Number.POSITIVE_INFINITY);//正无穷大，溢出时返回该值。该值大于 MAX_VALUE
+let a1 : number = 1000.121;
+document.write(a1.toString());//数字转换为字符串,若省略该参数，则使用基数 10
+document.write(a1.toString(2));//数字转换为字符串,若省略该参数，则使用基数 10
+document.write(a1.toExponential());//转换为科学计数法
+document.write(a1.toFixed());//把数字转换为字符串，并对小数点指定位数(0位)
+document.write(a1.toFixed(2));//转换为科学计数法，并对小数点指定位数(2位)
+document.write(a1.toLocaleString());//把数字转换为字符串，使用本地数字格式顺序
+document.write(a1.toPrecision(2));//把数字格式化为指定的长度
+document.write(a1.toPrecision());//把数字格式化为指定的长度（无变化）
+<!--------------------------------------------->
+//随机数
+const random = (min:any,max:any) => Math.floor(Math.random() * (max - min + 1) + min)//模板
+random(0,4);//0-4随机
+
+<!--------------------------------------------->
+//string一个字符系列，使用单引号（'）或双引号（"）来表示字符串类型。反引号（`）来定义多行文本和内嵌表达式。
+let names: string = "tom";
+let years: number = 5;
+let words: string = `您好，今年是 ${ names } 的 ${ years + 1} 周年`;
+console.log(names)
+console.log(years)
+console.log(words)
+var a = new String("123123");
+document.write(a.length());
+replace()替换与正则表达式匹配的子串
+var re = /(\w+)\s(\w+)/; 
+var str = "zara ali"; 
+var newstr = str.replace(re, "$2, $1"); 
+console.log(newstr);
+var a = new String("123123");
+var a1 = new String("324");
+document.write(a.length);//长度
+document.write(a.charAt(2));//返回在指定位置的字符
+document.write(a.charCodeAt(2));//返回在指定的位置的字符的 Unicode 编码
+document.write(a+a1);//拼接
+a+=a1;//拼接
+document.write(a.indexOf("12"));//返回某个指定的字符串值在字符串中首次出现的位置
+document.write(a.lastIndexOf("12"));//返回字符串最后出现的位置
+document.write(a.match(/12/g));//查找找到一个或多个正则表达式的匹配
+a1=a.substring(1,2);//提取字符串中两个指定的索引号之间的字符
+var str = new String("asd");
+document.write(str.toLocaleLowerCase());//根据主机的语言环境把字符串转换为小写
+document.write(str.toLocaleUpperCase());//据主机的语言环境把字符串转换为大写，只有几种语言
+document.write(str.toLowerCase());//把字符串转换为小写
+document.write(str.toUpperCase());//把字符串转换为大写
+let n = 10;
+document.write(n.toString());
+
+<!--------------------------------------------->
+//布尔类型boolean
+let flag: boolean = true;
+<!--------------------------------------------->
+//数组类型
+class al{
+    x:number;
+    y:number;
+    xs:number;
+    ys:number;
+    constructor(x:number,y:number){// 构造函数
+        this.x=x;
+        this.y=y;
+    }
+}
+let arr: number[] = [1, 2];
+let arr: Array<number> = [1, 2];
+let arrayList: any[] = [1, false, 'fine'];
+var a1=[]
+arr.push(1);
+arr.pop(1);
+a1.push(1,2);
+<!--------------------------------------------->
+//元组（c++pair）
+let x: [string, number];
+x = ['qwe', 1];    // 运行正常
+x = [1, 'qwe'];    // 报错
+console.log(x[0]);    // 输出 qwe
+<!--------------------------------------------->
+//枚举
+enum Color {Red, Green, Blue};
+let c: Color = Color.Blue;
+console.log(c);// 输出 2
+<!--------------------------------------------->
+//undefined用于初始化变量为一个未定义的值
+<!--------------------------------------------->
+//null表示对象值缺失
+<!--------------------------------------------->
+//never 是其它类型（包括 null 和 undefined）的子类型，代表从不会出现的值。
+<!--------------------------------------------->
+//多重类型
+let x: number | null | undefined;
+x = 1; // 编译正确
+x = undefined;    // 编译正确
+x = null;    // 编译正确
+<!--------------------------------------------->
+//类
+/数组类
+class Car { 
+    // 字段 
+    engine:string; 
+    a:number;
+    // 构造函数 
+    constructor(engine:string) { 
+        this.engine = engine 
+        this.a=3
+    }  
+ 
+    // 方法 
+    disp():void { 
+        console.log("发动机为 :   "+this.engine) 
+    } 
+}
+let asd1=new Car("123");
+document.write(asd1.engine);
+var a=[]
+for(var i=0;i<5;i++){
+    a[i]=[];
+    for(var i2=0;i2<5;i2++){
+        let asd=new Car("123"+i*i2);
+        a[i][i2]=asd;
+    }
+}
+for(var i=0;i<5;i++){
+    for(var i2=0;i2<5;i2++){
+        document.write(a[i][i2].engine);
+        if(a[asd1.a][asd1.a].a==3){
+            document.write("asd");
+        }
+    }
+}
+
+
+/private
+class Encapsulate { 
+   str1:string = "hello" 
+   private str2:string = "world" 
+}
+ 
+var obj = new Encapsulate() 
+console.log(obj.str1)     // 可访问 
+console.log(obj.str2)   // 编译错误， str2 是私有的
+/普通
+class m{
+    num:number
+    name:string
+    constructor(name:string,num:number){// 构造函数
+    this.name=name;
+    this.num=num;
+    }
+    a():void {
+        
+    }
+}
+var a = new m("123",12);
+console.log(m.num)  
+/继承（extends）
+1.继承
+class Shape { 
+   Area:number 
+   
+   constructor(a:number) { 
+      this.Area = a 
+   } 
+} 
+ 
+class Circle extends Shape { 
+   disp():void { 
+      console.log("圆的面积:  "+this.Area) 
+   } 
+}
+
+var obj = new Circle(223); 
+2.嵌套继承
+class Root { 
+   str:string; 
+} 
+class Child extends Root {} 
+class Leaf extends Child {}// 多重继承，继承了 Child 和 Root 类
+3.继承类的函数重载
+class PrinterClass { 
+   doPrint():void {
+      console.log("父类的 doPrint() 方法。") 
+   } 
+} 
+ 
+class StringPrinter extends PrinterClass { 
+   doPrint():void { 
+      super.doPrint() // 调用父类的函数
+      console.log("子类的 doPrint()方法。")
+   } 
+}
+//接口
+interface IPerson { 
+    firstName:string, 
+    lastName:string, 
+    sayHi: ()=>string 
+} 
+ 
+var customer:IPerson = { 
+    firstName:"Tom",
+    lastName:"Hanks", 
+    sayHi: ():string =>{return "Hi there"} 
+} 
+//类实现一个接口
+export interface IShape {
+   draw(); 
+}
+export class Circle implements shape.IShape { 
+   public draw() { 
+      console.log("Cirlce is drawn (external module)"); 
+   } 
+}
+
+
+<!--------------------------------------------->
+//对象
+var sites = { 
+   site1:"Runoob", 
+   site2:"Google" 
+}; 
+console.log(sites.site1) 
+<!------------------------------------------------------------------------------------------------>
+///循环
+for(let qwe1 : numder =0;qwe1<10;qwe1++){
+    document.write('<tr>');   
+    for(let qwe : numder qwe=0;qwe<10;qwe++){
+        document.write('<td><h1>' + "123" + '</td></h1>');
+        }
+        document.write('</tr>'); 
+ }
